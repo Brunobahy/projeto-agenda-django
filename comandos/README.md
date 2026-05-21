@@ -6,6 +6,9 @@ python -m venv venv
 pip install django
 django-admin startproject project .
 python .\manage.py startapp contact
+python .\manage.py makemigrate
+python .\manage.py migrate
+python .\manage.py createsuperuser
 ```
 
 Configurar o git
