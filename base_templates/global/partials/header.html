@@ -4,19 +4,35 @@
       </h1>
       <nav class="menu">
         <ul class="menu-list">
+
+          {% if user.is_authenticated %}
+          
           <li class="menu-item">
-            <a href="" class="menu-link">LINK 1</a>
+            <a href="{% url "contact:create" %}" class="menu-link">Create</a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">LINK 2</a>
+            <a href="{% url "contact:user_update" %}" class="menu-link">Profile</a>
+          </li>
+          <li class="menu-item">
+            <a href="{% url "contact:logout" %}" class="menu-link">Logout</a>
           </li>
         </ul>
+        {% else %}
+        <li class="menu-item">
+          <a href="{% url "contact:login" %}" class="menu-link">Login</a>
+        </li>
+        <li class="menu-item">
+          <a href="{% url "contact:register" %}" class="menu-link">Register</a>
+        </li>
+      </ul>
+
+        {% endif %}
       </nav>
 
       <div class="search">
         <form 
-        action=""
-        method="get"
+        action="{% url "contact:search" %}"
+        method="GET"
         >
           <input 
           class='search-input'
@@ -24,6 +40,7 @@
           placeholder='Search'
           id='search'
           name='q'
+          value='{{request.GET.q.strip}}'
           >
         </form>
       </div>

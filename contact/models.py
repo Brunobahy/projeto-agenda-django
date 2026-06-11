@@ -23,7 +23,7 @@ class Category(models.Model):
 
 # blank=True -> Retira a OBRIGATORIEDADE do campo ser preenchido
 class Contact(models.Model):
-    first_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50,verbose_name='Primeiro Nome')
     last_name = models.CharField(max_length=50,blank=True)
     phone = models.CharField(max_length=50)
     email = models.EmailField(max_length=250,blank=True)
